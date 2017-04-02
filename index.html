@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>D3.js v4 network from Neo4j bolt graph</title>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<svg width="1024" height="600"></svg>
+
+<script src="http://d3js.org/d3.v4.min.js" type="text/javascript"></script>
+<script src="http://d3js.org/d3-selection-multi.v1.js"></script>
+
+<script src="https://cdn.rawgit.com/neo4j/neo4j-javascript-driver/1.2/lib/browser/neo4j-web.min.js"></script>
+<script type="text/javascript" src="js/renderer.js"></script>
+
+<script type="text/javascript" src="js/neo4jQuery.js"></script>
+<script>
+    Promise.all([getLinks(), getNodes()]).then( function(values){
+        session.close()
+        setup(values[0], values[1])
+    })
+</script>
+
+<style type="text/css">
+    .node {  }
+
+    .link { stroke: #999; stroke-opacity: .6; stroke-width: 1px; }
+
+    body {
+        font: 18px sans-serif;
+    }
+</style>
+</body>
+</html>
