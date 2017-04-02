@@ -15,6 +15,8 @@ Uses D3 v4 force simulation, along with labelled edges. The main entry point is:
 This example doesn't access Neo4j, but instead serves the graph from standalone.json
 and into renderer.js
 
+[Quick Preview](http://rawgit.com/fancellu/neo4j-d3v4/master/standalone.html)
+
 ### neo4jQuery.js
 
 Uses the bolt pure javascript driver to query neo4j for node and link info. Returns promises
